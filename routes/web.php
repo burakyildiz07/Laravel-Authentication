@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/*
+ * Gruplama yöntemiyle arama alanındaki adminden sonra gelen bütün sayfaların yönlendirmesini burada yapıyoruz.
+ * prefix arama alanındaki admin yazısını belirtiyoruz.
+ * middleware 'de admin kontrolü için yarattığımız kontrolü belirtiyoruz
+ * 'middleware'=>'admin' tanımladığımız middleware kontrolünü Kernel.php ' tanımladığımız adı 'admin'.
+ */
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
+    /*
+     * Adminden sonraki ilk yönlecek sayfayı direk / olarak belirtiyoruz.
+     */
+    Route::get('/', 'HomeController@get_admin');
+});
+

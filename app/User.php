@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /*
+     * Veritabanındaki isadmin alanına ulaşmak için fonksiyon yaratttık.
+     * Bu fonksiyonu Admin middleware'de kullandık.
+     */
+    public function isadmin(){
+        return $this->isadmin;
+    }
 }
