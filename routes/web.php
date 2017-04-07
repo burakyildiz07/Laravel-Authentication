@@ -24,11 +24,16 @@ Route::get('/home', 'HomeController@index');
  * prefix arama alanındaki admin yazısını belirtiyoruz.
  * middleware 'de admin kontrolü için yarattığımız kontrolü belirtiyoruz
  * 'middleware'=>'admin' tanımladığımız middleware kontrolünü Kernel.php ' tanımladığımız adı 'admin'.
+ *
+ * Başka bir kısıtlama getirilceğinde örneğin
+ * Route::group(['prefix'=>'admin','middleware'=>['moderator','admin']],function (){
+ * şeklinde dünzenlebilir.
  */
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     /*
      * Adminden sonraki ilk yönlecek sayfayı direk / olarak belirtiyoruz.
      */
     Route::get('/', 'HomeController@get_admin');
+
 });
 
