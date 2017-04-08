@@ -79,8 +79,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Application Managers
+
+                    <!--Admin paneline girişte hatayla dönerken alacağı mesajı yazdırma-->
+                    @if($errors->any())
+                        {{$errors->first('msg')}}
+                    @endif
+
                 </div>
+
+                @can('edit_topic')
+                    <a href="">Edit the topic</a>
+                @endcan
+
+                @can('delete_topic')
+                    <a href="">Delete the topic</a>
+                @endcan
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
