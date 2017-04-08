@@ -22,9 +22,12 @@ class Admin
          * Kullanıcının giriş yaptığını(Auth::check) ve
          * Admin yetkinisine(Auth::user()->isadmin()) sahip olup olmadığını kontrol ettiriyoruz.
          */
-        if (Auth::check() && Auth::user()->isadmin()){
+
+        if (Auth::check() && Auth::user()->hasRole('admin')){
             return $next($request);
-        }
+        }else if (Auth::check() && Auth::user()->hasRole('admin')){
+             return $next($request);
+         }
         /*
          * Kullanıcı giriş yapmadıysa ve admin yetkisine sahip değilse anasayfa hata mesajı göndererek
          * yönlendiriyoruz.

@@ -31,9 +31,6 @@ class User extends Authenticatable
      * Veritabanındaki isadmin alanına ulaşmak için fonksiyon yaratttık.
      * Bu fonksiyonu Admin middleware'de kullandık.
      */
-    public function isadmin(){
-        return $this->isadmin;
-    }
 
     public function roles()
     {

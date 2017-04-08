@@ -87,7 +87,7 @@
                     @endif
 
                 </div>
-
+                {{}}
                 @can('edit_topic')
                     <a href="">Edit the topic</a>
                 @endcan
