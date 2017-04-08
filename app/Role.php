@@ -9,6 +9,7 @@ class Role extends Model
     public function permissions()
     {
         return $this->belongsToMany(Permissions::class);
+
     }
 
     public function assign(Permissions $permission)
