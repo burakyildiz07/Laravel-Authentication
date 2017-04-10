@@ -26,8 +26,4 @@ class HomeController extends Controller
         return view('home');
     }
 
-    //Admin sayfasına yönlendirme
-    public function get_admin(){
-        return view('admin');
-    }
 }

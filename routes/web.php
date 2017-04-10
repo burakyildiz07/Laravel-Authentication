@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    Auth::loginUsingId(1);
+   // Auth::loginUsingId(2);
     return view('welcome');
 });
 
@@ -34,7 +34,9 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function (){
     /*
      * Adminden sonraki ilk yönlecek sayfayı direk / olarak belirtiyoruz.
      */
-    Route::get('/', 'HomeController@get_admin');
-
+    Route::get('/', 'AdminController@get_admin');
+    Route::get('/dashboard', 'AdminController@get_admin');
+    Route::get('/haber-ekle',array('as'=>'haber-ekle','uses'=>'AdminController@get_haberEkle'));
+    Route::post('/haber-ekle',array('as'=>'haber-ekle','uses'=>'AdminController@post_haberEkle'));
 });
 
